@@ -47,7 +47,14 @@
               <h2 class="px-3 pt-2">[[*{name}]]</h2>
               <h4 class="px-3 h-100">Description: [[*{description}]]</h4>
               <hr class="mx-3">
-              <h5 class="px-3">Price: [[*{price}]]€</h5>
+              <div class="d-flex justify-content-between px-3">
+                <div>
+                  <h5 class="p-0 m-0">Price: [[*{price}]]€</h5>
+                </div>
+                <div>
+                  <a th:href="@{/pizzas/{id}(id=*{id})}">ℹ️</a>
+                </div>
+              </div>
             </div>
           </div>
         </li>

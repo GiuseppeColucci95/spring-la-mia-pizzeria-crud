@@ -1,0 +1,27 @@
+<!doctype html>
+<html xmlns:th='http://www.thymeleaf.org'>
+
+<head>
+  <title>Document</title>
+  <th:block th:insert="~{fragments/fragments :: bootstrap}"></th:block>
+  <!-- BOOTSTRAP STYLE -->
+</head>
+
+<body>
+
+  <th:block th:replace="~{fragments/fragments :: header}"></th:block>
+  <!-- HEADER -->
+
+  <div class="container text-center my-5" th:object="${pizza}">
+    <h1>[[*{name}]] details</h1>
+    <img th:src="*{imageUrl}" alt="pizza details image" class="w-75 rounded-5 my-3">
+    <h3>[[*{description}]]</h3>
+  </div>
+  <!-- PIZZA DETAILS -->
+
+  <th:block th:insert="~{fragments/fragments :: bootstrapJs}"></th:block>
+  <!-- BOOTSTRAP SCRIPT -->
+
+</body>
+
+</html>
