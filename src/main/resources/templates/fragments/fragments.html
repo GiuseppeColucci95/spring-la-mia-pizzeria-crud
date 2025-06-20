@@ -46,10 +46,9 @@
             <div class="h-25">
               <h2 class="px-3 pt-2">[[*{name}]]</h2>
               <h4 class="px-3 h-100">Description: [[*{description}]]</h4>
-              <hr class="mx-3">
-              <div class="d-flex justify-content-between px-3">
+              <div class="d-flex justify-content-between px-3 py-2 border-top">
                 <div>
-                  <h5 class="p-0 m-0">Price: [[*{price}]]€</h5>
+                  <h5>Price: [[*{price}]]€</h5>
                 </div>
                 <div>
                   <a th:href="@{/pizzas/{id}(id=*{id})}">ℹ️</a>
@@ -64,6 +63,17 @@
     </div>
   </section>
   <!-- PIZZAS LIST -->
+
+  <div th:fragment="searchBar" class="container w-50 text-center mt-3">
+    <form th:action="@{/pizzas/search}" class="d-flex ">
+      <input th:value="${name}" name="name" class="form-control" type="text"
+        placeholder="Search your pizza by title or description..." />
+      <button class="btn btn-outline-warning" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+  <!-- PIZZA SEARCH SEARCH -->
 
   <th:block th:fragment="bootstrapJs">
     <script th:src="@{/webjars/bootstrap/5.3.6/js/bootstrap.bundle.min.js}"></script>
