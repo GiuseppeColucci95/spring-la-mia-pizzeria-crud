@@ -37,7 +37,6 @@
 
   <section th:fragment="pizzasList">
     <div class="container">
-      <h1 class="text-center p-2 mt-4">PIZZAS LIST</h1>
 
       <ul th:if="${pizzas.size()>0}" class="list-unstyled pt-3 row row-gap-3">
         <li th:each="pizza : ${pizzas}" th:object="${pizza}" class="col col-xs-12 col-sm-6 col-lg-4">
