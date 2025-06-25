@@ -12,9 +12,9 @@
   <th:block th:replace="~{fragments/fragments :: header}"></th:block>
   <!-- HEADER -->
 
-  <form th:action="@{/pizzas/create}" th:object="${pizza}" method="post" class="container mt-5">
+  <form th:action="@{/pizzas/edit/{id}(id=${pizza.id})}" th:object="${pizza}" method="post" class="container mt-5">
 
-    <h1 class="text-center">Insert your new Pizza here</h1>
+    <h1 class="text-center">Update your [[*{name}]] here</h1>
 
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
@@ -60,7 +60,7 @@
       </div>
 
       <div class="mb-3 d-flex justify-content-between">
-        <input type="submit" class="btn btn-warning" value="Create new pizza">
+        <input type="submit" class="btn btn-warning" value="Edit your pizza">
         <input type="reset" class="btn btn-danger" value="Reset all fields">
       </div>
       <!-- BUTTONS -->

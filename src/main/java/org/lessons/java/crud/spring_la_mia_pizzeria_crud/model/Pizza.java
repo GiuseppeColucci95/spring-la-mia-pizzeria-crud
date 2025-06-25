@@ -9,7 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -21,18 +23,20 @@ public class Pizza {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
-  @Size(max = 50)
-  @NotBlank
+  @Size(max = 50, message = "name must be of maximum 50 characters")
+  @NotBlank(message = "name must not be null or empty")
   private String name;
 
   @Lob
+  @NotBlank(message = "description must not be null")
   private String description;
 
-  @NotBlank
+  @NotBlank(message = "image url must not be null or empty")
   @Column(name = "image_url")
   private String imageUrl;
 
-  @NotBlank
+  @NotNull(message = "price must not be null")
+  @DecimalMin("1")
   private BigDecimal price;
 
   // ! GETTERS
